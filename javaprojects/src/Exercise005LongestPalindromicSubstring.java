@@ -31,6 +31,28 @@ public class Exercise005LongestPalindromicSubstring {
         return longestPalindromicSubstring;
     }
 
+
+    public String longestPalindromeOptimal(String s) {
+        int from = 0, to = 1;
+        for (int i = 1, len = s.length(); i < len;) {
+            char c = s.charAt(i);
+            int f = i;
+            do --f; while (f >= 0 && c == s.charAt(f));
+            int t = i;
+            do ++t; while (t < len && c == s.charAt(t));
+            i = t;
+            while (f >= 0 && t < len && s.charAt(f) == s.charAt(t)) {
+                --f;
+                ++t;
+            }
+            if (to - from >= t - f - 1) continue;
+            from = f + 1;
+            to = t;
+            if(from==0 && to ==s.length()) break;
+        }
+        return s.substring(from, to);
+    }
+
     public static void main(String[] args) {
         String s = "";
         Exercise005LongestPalindromicSubstring test = new Exercise005LongestPalindromicSubstring();
