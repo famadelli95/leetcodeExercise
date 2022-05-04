@@ -24,7 +24,7 @@ public class Exercise006ZigzagConversion {
     public static void main(String[] args) {
         String s = "A";
         Exercise006ZigzagConversion test = new Exercise006ZigzagConversion();
-        String palindromic = test.convert(s,1);
-        System.out.println(palindromic);
+        String zigzagconversion = test.convert(s,1);
+        System.out.println(zigzagconversion);
     }
 }
